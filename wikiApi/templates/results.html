@@ -1,0 +1,45 @@
+{# templates/results.html #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Results</title>
+</head>
+
+<body>
+  
+  <p>
+    <b>{{ search_results[0].term }}</b>
+  </p>
+  <h3> Results</h3>
+  
+  <ul>
+  {% for r in search_results %}
+    <li>
+      <a href="{{ url_for('page', pageid=r.pageid) }}">
+      Full Data</a>
+
+    </li>
+    <p>Summary:</p>
+    <table padding="2">
+      {% for key, value in r.items() %}
+  
+      <tr>
+         <th> {{ key }} </th>
+         {% if key == 'snippet' %}
+         <td> {{ value|safe }}</td>
+         {% else %}
+         <td> {{ value|safe }}</td>
+         {% endif %}
+         
+      </tr>
+  
+      {% endfor %}
+   </table>
+  {% endfor %}
+  </ul>
+  <hr>
+
+</body>
+</html>

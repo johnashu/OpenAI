@@ -1,0 +1,21 @@
+{# templates/page.html #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page</title>
+</head>
+
+<body>
+  
+  <h3> Results</h3>
+  <ul>
+  {% for p in page_content %}
+    <li>
+      <em>{{ r }}:</em> 
+  {% endfor %}
+  </ul>
+
+</body>
+</html>
